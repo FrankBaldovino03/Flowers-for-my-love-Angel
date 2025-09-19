@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Amarillas Para Mi Amor</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Script de configuración de música -->
+    <script>
+        // Solo configurar el audio, no reproducir hasta que se abra el regalo
+        window.addEventListener('load', function() {
+            console.log('🎵 Ventana cargada, configurando música...');
+            const audio = document.getElementById('backgroundMusic');
+            if (audio) {
+                audio.muted = false;
+                audio.volume = 1.0;
+                console.log('✅ Música configurada, esperando a que se abra el regalo');
+            }
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎵 DOM listo, configurando música...');
+            const audio = document.getElementById('backgroundMusic');
+            if (audio) {
+                audio.muted = false;
+                audio.volume = 1.0;
+                console.log('✅ Música configurada, esperando a que se abra el regalo');
+            }
+        });
+    </script>
+    
+</head>
+    <body>
+        <!-- Música de fondo -->
+        <audio id="backgroundMusic" loop autoplay preload="auto" muted>
+            <source src="Reik - Creo En Ti (LetraLyrics).mp3" type="audio/mpeg">
+            <source src="Reik - Creo En Ti (LetraLyrics).mp3" type="audio/mp3">
+        </audio>
+        
+        <!-- Script de configuración después del audio -->
+        <script>
+            (function() {
+                console.log('🎵 Script inmediato ejecutándose...');
+                const audio = document.getElementById('backgroundMusic');
+                if (audio) {
+                    // Solo configurar, no reproducir
+                    audio.muted = false;
+                    audio.volume = 1.0;
+                    console.log('✅ Música configurada, esperando a que se abra el regalo');
+                }
+            })();
+        </script>
+
+        
+        <!-- Pantalla de bienvenida -->
+        <div id="welcomeScreen" style="
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #16213e 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+        ">
+            <!-- Estrellas de fondo -->
+            <div style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: 
+                    radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+                    radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+                    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                    radial-gradient(1px 1px at 130px 80px, #fff, transparent),
+                    radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+                background-repeat: repeat;
+                background-size: 200px 100px;
+                animation: twinkle 3s infinite;
+            "></div>
+            
+            <!-- Mensaje principal -->
+            <div style="
+                text-align: center;
+                color: #FFD700;
+                text-shadow: 0 0 20px #FFD700;
+                width: 100%;
+                max-width: 800px;
+                padding: 0 20px;
+            ">
+                <h1 id="text1" style="
+                    font-size: clamp(2rem, 5vw, 3.5rem);
+                    margin: 0;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    letter-spacing: clamp(1px, 0.5vw, 3px);
+                    min-height: clamp(2.5rem, 6vw, 4rem);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    word-wrap: break-word;
+                    hyphens: auto;
+                "></h1>
+                
+                <h2 id="text2" style="
+                    font-size: clamp(2.5rem, 6vw, 4rem);
+                    margin: clamp(10px, 3vw, 20px) 0;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    letter-spacing: clamp(2px, 0.8vw, 4px);
+                    min-height: clamp(3rem, 7vw, 4.5rem);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    word-wrap: break-word;
+                    hyphens: auto;
+                "></h2>
+                
+                <h3 id="text3" style="
+                    font-size: clamp(1.8rem, 4vw, 2.5rem);
+                    margin: clamp(10px, 3vw, 20px) 0;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    letter-spacing: clamp(1px, 0.4vw, 2px);
+                    min-height: clamp(2.5rem, 5vw, 3rem);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    word-wrap: break-word;
+                    hyphens: auto;
+                "></h3>
+                
+                <p id="text4" style="
+                    font-size: clamp(1.2rem, 3vw, 1.8rem);
+                    margin: clamp(20px, 4vw, 30px) 0;
+                    color: #fff;
+                    text-shadow: 0 0 15px #fff;
+                    min-height: clamp(2rem, 4vw, 2.5rem);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    word-wrap: break-word;
+                    hyphens: auto;
+                    line-height: 1.3;
+                "></p>
+            </div>
+            
+            <!-- Botón para abrir el regalo -->
+            <button id="openGiftBtn" style="
+                background: linear-gradient(45deg, #8B008B, #4B0082);
+                color: #fff;
+                border: 3px solid #FF69B4;
+                padding: clamp(15px, 3vw, 20px) clamp(25px, 6vw, 40px);
+                font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: clamp(1px, 0.4vw, 2px);
+                border-radius: clamp(10px, 2vw, 15px);
+                cursor: pointer;
+                margin-top: clamp(30px, 6vw, 40px);
+                box-shadow: 0 0 30px rgba(255, 105, 180, 0.6);
+                transition: all 0.3s ease;
+                opacity: 0;
+                transform: translateY(20px);
+                min-height: 48px;
+                min-width: 200px;
+                max-width: 90vw;
+                word-wrap: break-word;
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: transparent;
+            " onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 0 40px rgba(255, 105, 180, 0.8)'" 
+               onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 30px rgba(255, 105, 180, 0.6)'"
+               ontouchstart="this.style.transform='scale(0.95)'"
+               ontouchend="this.style.transform='scale(1)'">
+                VER TU REGALO
+            </button>
+        </div>
+        
+        <!-- Indicador de carga de música -->
+        <div id="musicLoading" style="
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #FFD700;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1000;
+            font-size: 18px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            display: none;
+        ">
+            🎵 Cargando música...
+        </div>
+
+        <div class="night"></div>
+        <div class="flowers">
+          <div class="flower flower--1">
+            <div class="flower__leafs flower__leafs--1">
+              <div class="flower__leaf flower__leaf--1"></div>
+              <div class="flower__leaf flower__leaf--2"></div>
+              <div class="flower__leaf flower__leaf--3"></div>
+              <div class="flower__leaf flower__leaf--4"></div>
+              <div class="flower__white-circle"></div>
+      
+              <div class="flower__light flower__light--1"></div>
+              <div class="flower__light flower__light--2"></div>
+              <div class="flower__light flower__light--3"></div>
+              <div class="flower__light flower__light--4"></div>
+              <div class="flower__light flower__light--5"></div>
+              <div class="flower__light flower__light--6"></div>
+              <div class="flower__light flower__light--7"></div>
+              <div class="flower__light flower__light--8"></div>
+      
+            </div>
+            <div class="flower__line">
+              <div class="flower__line__leaf flower__line__leaf--1"></div>
+              <div class="flower__line__leaf flower__line__leaf--2"></div>
+              <div class="flower__line__leaf flower__line__leaf--3"></div>
+              <div class="flower__line__leaf flower__line__leaf--4"></div>
+              <div class="flower__line__leaf flower__line__leaf--5"></div>
+              <div class="flower__line__leaf flower__line__leaf--6"></div>
+            </div>
+          </div>
+      
+          <div class="flower flower--2">
+            <div class="flower__leafs flower__leafs--2">
+              <div class="flower__leaf flower__leaf--1"></div>
+              <div class="flower__leaf flower__leaf--2"></div>
+              <div class="flower__leaf flower__leaf--3"></div>
+              <div class="flower__leaf flower__leaf--4"></div>
+              <div class="flower__white-circle"></div>
+      
+              <div class="flower__light flower__light--1"></div>
+              <div class="flower__light flower__light--2"></div>
+                <div class="flower__light flower__light--3"></div>
+              <div class="flower__light flower__light--4"></div>
+              <div class="flower__light flower__light--5"></div>
+              <div class="flower__light flower__light--6"></div>
+              <div class="flower__light flower__light--7"></div>
+              <div class="flower__light flower__light--8"></div>
+      
+            </div>
+            <div class="flower__line">
+              <div class="flower__line__leaf flower__line__leaf--1"></div>
+              <div class="flower__line__leaf flower__line__leaf--2"></div>
+              <div class="flower__line__leaf flower__line__leaf--3"></div>
+              <div class="flower__line__leaf flower__line__leaf--4"></div>
+            </div>
+          </div>
+      
+          <div class="flower flower--3">
+            <div class="flower__leafs flower__leafs--3">
+              <div class="flower__leaf flower__leaf--1"></div>
+              <div class="flower__leaf flower__leaf--2"></div>
+              <div class="flower__leaf flower__leaf--3"></div>
+              <div class="flower__leaf flower__leaf--4"></div>
+              <div class="flower__white-circle"></div>
+      
+              <div class="flower__light flower__light--1"></div>
+              <div class="flower__light flower__light--2"></div>
+              <div class="flower__light flower__light--3"></div>
+              <div class="flower__light flower__light--4"></div>
+              <div class="flower__light flower__light--5"></div>
+              <div class="flower__light flower__light--6"></div>
+              <div class="flower__light flower__light--7"></div>
+              <div class="flower__light flower__light--8"></div>
+      
+            </div>
+            <div class="flower__line">
+              <div class="flower__line__leaf flower__line__leaf--1"></div>
+              <div class="flower__line__leaf flower__line__leaf--2"></div>
+              <div class="flower__line__leaf flower__line__leaf--3"></div>
+              <div class="flower__line__leaf flower__line__leaf--4"></div>
+            </div>
+          </div>
+      
+          <div class="grow-ans" style="--d:1.2s">
+            <div class="flower__g-long">
+              <div class="flower__g-long__top"></div>
+              <div class="flower__g-long__bottom"></div>
+            </div>
+          </div>
+      
+          <div class="growing-grass">
+            <div class="flower__grass flower__grass--1">
+              <div class="flower__grass--top"></div>
+              <div class="flower__grass--bottom"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+              <div class="flower__grass__overlay"></div>
+            </div>
+          </div>
+      
+          <div class="growing-grass">
+            <div class="flower__grass flower__grass--2">
+              <div class="flower__grass--top"></div>
+              <div class="flower__grass--bottom"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+              <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+              <div class="flower__grass__overlay"></div>
+            </div>
+          </div>
+      
+          <div class="grow-ans" style="--d:2.4s">
+            <div class="flower__g-right flower__g-right--1">
+              <div class="leaf"></div>
+            </div>
+          </div>
+      
+          <div class="grow-ans" style="--d:2.8s">
+            <div class="flower__g-right flower__g-right--2">
+              <div class="leaf"></div>
+            </div>
+          </div>
+      
+          <div class="grow-ans" style="--d:2.8s">
+            <div class="flower__g-front">
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--2">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--3">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--4">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--5">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--6">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--7">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--8">
+                <div class="flower__g-front__leaf"></div>
+              </div>
+              <div class="flower__g-front__line"></div>
+            </div>
+          </div>
+      
+          <div class="grow-ans" style="--d:3.2s">
+            <div class="flower__g-fr">
+              <div class="leaf"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--1"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--2"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--3"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--4"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--5"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--6"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--7"></div>
+              <div class="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
+            </div>
+          </div>
+      
+          <div class="long-g long-g--0">
+            <div class="grow-ans" style="--d:3s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d:2.2s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d:3.4s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d:3.6s">
+              <div class="leaf leaf--3"></div>
+            </div>
+          </div>
+      
+          <div class="long-g long-g--1">
+            <div class="grow-ans" style="--d:3.6s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d:3.8s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d:4s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d:4.2s">
+              <div class="leaf leaf--3"></div>
+            </div>
+          </div>
+      
+          <div class="long-g long-g--2">
+            <div class="grow-ans" style="--d:4s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d:4.2s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d:4.4s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d:4.6s">
+              <div class="leaf leaf--3"></div>
+            </div>
+          </div>
+      
+          <div class="long-g long-g--3">
+            <div class="grow-ans" style="--d:4s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d:4.2s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d:3s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d:3.6s">
+              <div class="leaf leaf--3"></div>
+            </div>
+          </div>
+      
+          <div class="long-g long-g--4">
+            <div class="grow-ans" style="--d:4s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d:4.2s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d:3s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d:3.6s">
+              <div class="leaf leaf--3"></div>
+            </div>
+          </div>
+      
+          <div class="long-g long-g--5">
+            <div class="grow-ans" style="--d:4s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d:4.2s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d:3s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d:3.6s">
+              <div class="leaf leaf--3"></div>
+            </div>
+          </div>
+      
+          <div class="long-g long-g--6">
+            <div class="grow-ans" style="--d:4.2s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d:4.4s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d:4.6s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d:4.8s">
+              <div class="leaf leaf--3"></div>
+            </div>
+          </div>
+      
+          <div class="long-g long-g--7">
+            <div class="grow-ans" style="--d:3s">
+              <div class="leaf leaf--0"></div>
+            </div>
+            <div class="grow-ans" style="--d:3.2s">
+              <div class="leaf leaf--1"></div>
+            </div>
+            <div class="grow-ans" style="--d:3.5s">
+              <div class="leaf leaf--2"></div>
+            </div>
+            <div class="grow-ans" style="--d:3.6s">
+              <div class="leaf leaf--3"></div>
+            </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        
+        
+        </body>
+    </head>
+    <script src="script.js"></script>
+</html>
